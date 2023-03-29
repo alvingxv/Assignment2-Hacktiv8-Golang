@@ -230,7 +230,7 @@ func (o *orderPg) DeleteOrder(orderId int) errs.MessageErr {
 	WHERE order_id = $1
 	`
 
-	if _, err := o.db.Query(queryDelete, orderId); err != nil {
+	if _, err := o.db.Exec(queryDelete, orderId); err != nil {
 		return errs.NewInternalServerError("Internal Server Error2")
 	}
 
